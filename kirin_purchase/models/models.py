@@ -8,4 +8,7 @@ from odoo import api, fields, models, _
 class purchase_order(models.Model):
     _inherit="purchase.order"
 
-    
+    def action_create_invoice(self):
+        for order in self:
+            super(purchase_order,order).action_create_invoice()
+        return self.invoice_ids.get_view_action()
