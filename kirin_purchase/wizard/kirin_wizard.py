@@ -21,7 +21,8 @@ class kirin_purchase_receive_wizard(models.Model):
 
     def button_confirm(self):
         """批量接收订单"""
-        picking_ids = order.picking_ids.filtered(lambda p:p.state not in ['cancel','done'])
-        picking_ids.set_done_quantity()
-        picking_ids.action_confirm()
-        picking_ids.button_validate()
+        for order in self:
+            picking_ids = order.picking_ids.filtered(lambda p:p.state not in ['cancel','done'])
+            picking_ids.set_done_quantity()
+            picking_ids.action_confirm()
+            picking_ids.button_validate()
