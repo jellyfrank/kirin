@@ -1,60 +1,14 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="kirin_purchase.list">
-      <field name="name">kirin_purchase list</field>
-      <field name="model">kirin_purchase.kirin_purchase</field>
+    <record id="view_purchase_order_search" model="ir.ui.view">
+      <field name="name">purchase order search</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <filter name="late_rfqs" position="after">
+          <filter name="partial_ordered" string="Partial Ordered" domain="[('is_partial_order','=',True)]"/>
+        </filter>
       </field>
     </record>
--->
-
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="kirin_purchase.action_window">
-      <field name="name">kirin_purchase window</field>
-      <field name="res_model">kirin_purchase.kirin_purchase</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="kirin_purchase.action_server">
-      <field name="name">kirin_purchase server</field>
-      <field name="model_id" ref="model_kirin_purchase_kirin_purchase"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="kirin_purchase" id="kirin_purchase.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="kirin_purchase.menu_1" parent="kirin_purchase.menu_root"/>
-    <menuitem name="Menu 2" id="kirin_purchase.menu_2" parent="kirin_purchase.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="kirin_purchase.menu_1_list" parent="kirin_purchase.menu_1"
-              action="kirin_purchase.action_window"/>
-    <menuitem name="Server to list" id="kirin_purchase" parent="kirin_purchase.menu_2"
-              action="kirin_purchase.action_server"/>
--->
   </data>
 </odoo>
