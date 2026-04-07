@@ -1,0 +1,5 @@
+#. module: k2_project
+#: code:addons/k2_project/models/base.py:0
+#, python-format
+msgid "This field was restricted to unique, value %s already existed!"
+msgstr "该字段具有唯一性限制，值%s已经存在!"

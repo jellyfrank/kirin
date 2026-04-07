@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="view_purchase_order_search" model="ir.ui.view">
+      <field name="name">purchase order search</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+      <field name="arch" type="xml">
+        <filter name="late_rfqs" position="after">
+          <filter name="partial_ordered" string="Partial Ordered" domain="[('is_partial_order','=',True)]"/>
+        </filter>
+      </field>
+    </record>
+  </data>
+</odoo>
