@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kirin_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-07 11:09+0000\n"
+"PO-Revision-Date: 2026-04-07 19:12+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: kirin_account
+#: model_terms:ir.ui.view,arch_db:kirin_account.report_invoice_document_extend
+msgid "<span style=\"color: #999;\">—</span>"
+msgstr ""
+
+#. module: kirin_account
+#: model_terms:ir.ui.view,arch_db:kirin_account.report_invoice_document_extend
+msgid "<span>Barcode</span>"
+msgstr "<span>条码</span>"
+
+#. module: kirin_account
+#: model:ir.model.fields,help:kirin_account.field_account_move_line__barcode
+msgid "International Article Number used for product identification."
+msgstr "国际商品编号，用于产品识别。"
+
+#. module: kirin_account
+#: model:ir.model,name:kirin_account.model_account_move
+msgid "Journal Entry"
+msgstr "日记账分录"
+
+#. module: kirin_account
+#: model:ir.model,name:kirin_account.model_account_move_line
+msgid "Journal Item"
+msgstr "日记账项目"
+
+#. module: kirin_account
+#: model:ir.model.fields,field_description:kirin_account.field_account_move_line__barcode
+msgid "Product Barcode"
+msgstr "商品条形码"
+
+#. module: kirin_account
+#: model:ir.model.fields,field_description:kirin_account.field_account_move_line__categ_id
+#: model:ir.model.fields,field_description:kirin_account.field_purchase_order_line__product_categ_id
+#: model:ir.model.fields,field_description:kirin_account.field_sale_order_line__product_categ_id
+msgid "Product Category"
+msgstr "产品类别"
+
+#. module: kirin_account
+#: model:ir.model,name:kirin_account.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "采购订单明细"
+
+#. module: kirin_account
+#: model:ir.model,name:kirin_account.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "销售订单行"

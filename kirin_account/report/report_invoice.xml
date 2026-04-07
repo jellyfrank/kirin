@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 继承发票报表模板 -->
+    <template id="report_invoice_document_extend" inherit_id="account.report_invoice_document" name="Extended Invoice Report with Product Barcode QR">
+
+        <!-- 在产品行中，金额列后面添加一列 -->
+        <xpath expr="//table[@name='invoice_line_table']/thead/tr" position="inside">
+            <th name="th_barcode" class="text-end"><span>Barcode</span></th>
+        </xpath>
+
+        <!-- 在明细表 body 中添加条码二维码列 -->
+        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/tr/t[@name='account_invoice_line_accountable']" position="inside">
+            <td name="td_barcode_qr" class="text-center">
+                <t t-if="line.product_id and line.product_id.barcode">
+                    <img t-att-src="'/report/barcode/Code128/%s?width=250&amp;height=66&amp;humanreadable=1' % line.product_id.barcode"
+                         style="height:36px; width:auto; max-width:250px;"
+                         t-att-alt="line.product_id.barcode"/>
+                </t>
+                <t t-else="">
+                    <span style="color: #999;">—</span>
+                </t>
+            </td>
+        </xpath>
+
+        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/tr/t[2]/td" position="attributes">
+            <attribute name="colspan">100</attribute>
+        </xpath>
+
+        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/tr/t[3]/td" position="attributes">
+            <attribute name="colspan">100</attribute>
+        </xpath>
+
+        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/t[last()]/tr/td" position="attributes">
+            <attribute name="colspan">100</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>
