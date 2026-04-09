@@ -5,12 +5,12 @@
     <template id="report_invoice_document_extend" inherit_id="account.report_invoice_document" name="Extended Invoice Report with Product Barcode QR">
 
         <!-- 在产品行中，金额列后面添加一列 -->
-        <xpath expr="//table[@name='invoice_line_table']/thead/tr" position="inside">
+        <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[@name='th_description']" position="after">
             <th name="th_barcode" class="text-center"><span>Barcode</span></th>
         </xpath>
 
         <!-- 在明细表 body 中添加条码二维码列 -->
-        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/tr/t[@name='account_invoice_line_accountable']" position="inside">
+        <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/tr/t[@name='account_invoice_line_accountable']/td[@name='account_invoice_line_name']" position="after">
             <td name="td_barcode_qr" class="text-center">
 <!--                <t t-if="line.product_id and line.product_id.barcode">-->
 <!--                    <img t-att-src="'/report/barcode/Code128/%s?width=250&amp;height=66&amp;humanreadable=1' % line.product_id.barcode"-->
@@ -34,6 +34,15 @@
 
         <xpath expr="//tbody[@class='invoice_tbody']/t[@t-foreach='lines']/t[last()]/tr/td" position="attributes">
             <attribute name="colspan">100</attribute>
+        </xpath>
+
+        <!-- 移动备注（Narration） -->
+        <xpath expr="//div[@name='comment']" position="replace"/>
+
+        <xpath expr="//t[@t-set='display_discount']" position="before">
+            <div t-if="not is_html_empty(o.narration)" name="comment">
+                <span t-field="o.narration"/>
+            </div>
         </xpath>
 
     </template>
